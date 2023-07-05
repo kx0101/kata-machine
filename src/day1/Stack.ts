@@ -5,20 +5,19 @@ type Node<T> = {
 
 export default class Stack<T> {
     public head?: Node<T>;
-    public tail?: Node<T>;
-    public length: number;
+    public length: number = 0;
 
     constructor() {
         this.length = 0;
-        this.tail = this.head = undefined;
+        this.head = undefined;
     }
 
     push(value: T): void {
-        const node = { value } as Node<T>;
         this.length++;
+        const node = { value } as Node<T>;
 
         if (!this.head) {
-            this.head = this.tail = node;
+            this.head = node;
             return;
         }
 
